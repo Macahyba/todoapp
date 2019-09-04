@@ -2,6 +2,8 @@ package br.edu.infnet.todoapp.app.model;
 
 public class Todo {
 	
+	private String id; 
+	
 	private String tarefa;
 	
 	private Boolean pronto;
@@ -13,6 +15,14 @@ public class Todo {
 		super();
 		this.tarefa = tarefa;
 		this.pronto = pronto;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getTarefa() {

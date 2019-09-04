@@ -5,32 +5,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main.css" />" >
+<link rel="stylesheet"
+	<c:url value="/resources/css/bootstrap.min.css" />">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/main.css" />">
+
 
 <meta charset="UTF-8">
 <title>Page List Todo</title>
 </head>
 <body>
-	
-	<h2>Page List Todo</h2>
-	<h3><a href="<c:url value="/todos/form" />"  >Criar nova tarefa</a></h3>
-	
-	<table border="1" width="100%" cellpadding="1" cellspacing="1"  >
-		<tr>
-			<th>Tarefa</th>
-			<th>Status</th>
-			<th>Ação</th>
-		</tr>
+	<div class="container-fluid">
+		<h2>Page List Todo</h2>
+		<h3>
+			<a href="<c:url value="/todos/form" />">Criar nova tarefa</a>
+		</h3>
 
-		<c:forEach var="todo" items="${listaTodos}" varStatus="loop">
+		<table border="1" width="100%" cellpadding="1" cellspacing="1">
 			<tr>
-				<td>${todo.tarefa}</td>
-				<td>${todo.pronto}</td>
-	<td><a href="<c:url value="/todos/edit/${loop.index}" />" >Edit</a></td>
+				<th>Tarefa</th>
+				<th>Status</th>
+				<th colspan="2">Ação</th>
 			</tr>
-		</c:forEach>
-	</table>
 
+			<c:forEach var="todo" items="${listaTodos}" varStatus="loop">
+				<tr>
+					<td>${todo.tarefa}</td>
+					<td>${todo.pronto}</td>
+					<td><a href="<c:url value="/todos/edit/${loop.index}" />">Edit</a></td>
+					<td><a href="<c:url value="/todos/delete/${loop.index}" />">Delete</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+		<p>
+			<a href="<c:url value="/index" />">Home</a>
+		</p>
 
+	</div>
 </body>
 </html>

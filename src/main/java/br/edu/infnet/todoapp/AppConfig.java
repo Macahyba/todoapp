@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.edu.infnet.todoapp.app")
+@ComponentScan(basePackages = "br.edu.infnet.todoapp")
 public class AppConfig extends WebMvcConfigurerAdapter{
 
 	@Bean(name="viewResolver")

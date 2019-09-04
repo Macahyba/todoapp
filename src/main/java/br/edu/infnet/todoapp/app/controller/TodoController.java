@@ -10,12 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.infnet.todoapp.app.model.Todo;
+import br.edu.infnet.todoapp.service.TodoService;
 
 @Controller
 public class TodoController {
 
 	@Autowired
 	private TodoService service;
+	
+	@RequestMapping(value = {"/", "/index"} , method = RequestMethod.GET)
+	public String home(Model model) {
+		return "index";
+	}
 	
 	@RequestMapping(value = "/todos/list", method = RequestMethod.GET)
 	public String list(Model model) {
@@ -32,7 +38,7 @@ public class TodoController {
 	
 	@RequestMapping(value = "/todos/add", method = RequestMethod.POST)
 	public String save(Model model, Todo todo) {
-		service.persite(todo);
+		service.persiste(todo);
 		return "redirect:/todos/list";
 	}
 	
@@ -40,6 +46,7 @@ public class TodoController {
 	public String edit(@PathVariable("id") String id, Model model) {
 		Todo todo = service.getTodo(id);
 		model.addAttribute("todo", todo);
+		model.addAttribute("id", id);
 		return "todos/edit";
 	}
 	
@@ -48,6 +55,13 @@ public class TodoController {
 		service.update(todo);
 		return "redirect:/todos/list";
 	}
+	
+	@RequestMapping(value = "/todos/delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable("id") String id, Model model) {
+		Todo todo = service.getTodo(id);
+		service.delete(todo);
+		return "redirect:/todos/list";
+	}	
 	
 	public TodoService getService() {
 		return service;
