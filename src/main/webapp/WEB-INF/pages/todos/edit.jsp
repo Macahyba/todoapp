@@ -9,7 +9,7 @@
 			href="<c:url value="/resources/css/main.css" />" >
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Editar Tarefa</title>
 </head>
 <body>
  

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main.css" />" >
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Page List Todo</title>
 </head>
 <body>
 	

@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main.css" />" >
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Adicionar Tarefa</title>
 </head>
 <body>
     
