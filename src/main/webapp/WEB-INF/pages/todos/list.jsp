@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	<c:url value="/resources/css/bootstrap.min.css" />">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/bootstrap.min.css" />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
 
@@ -21,19 +21,19 @@
 			<a href="<c:url value="/todos/form" />">Criar nova tarefa</a>
 		</h3>
 
-		<table border="1" width="100%" cellpadding="1" cellspacing="1">
+		<table class="table">
 			<tr>
 				<th>Tarefa</th>
 				<th>Status</th>
 				<th colspan="2">Ação</th>
 			</tr>
 
-			<c:forEach var="todo" items="${listaTodos}" varStatus="loop">
+			<c:forEach var="todo" items="${listaTodos}">
 				<tr>
 					<td>${todo.tarefa}</td>
 					<td>${todo.pronto}</td>
-					<td><a href="<c:url value="/todos/edit/${loop.index}" />">Edit</a></td>
-					<td><a href="<c:url value="/todos/delete/${loop.index}" />">Delete</a></td>
+					<td><a href="<c:url value="/todos/edit/${todo.id}" />">Edit</a></td>
+					<td><a href="<c:url value="/todos/delete/${todo.id}" />">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

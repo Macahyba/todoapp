@@ -1,8 +1,16 @@
-package br.edu.infnet.todoapp.app.model;
+package br.edu.infnet.todoapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
 public class Todo {
 	
-	private String id; 
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id; 
 	
 	private String tarefa;
 	
@@ -17,11 +25,11 @@ public class Todo {
 		this.pronto = pronto;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

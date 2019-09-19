@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"<c:url value="/resources/css/bootstrap.min.css" />">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/bootstrap.min.css" />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
 
@@ -19,7 +20,7 @@
 		<p>
 			<label for="tarefa">Tarefa</label> <input type="text"
 				value="${todo.tarefa}" name="tarefa" id="tarefa" size="100">
-			<input type="hidden" name="id" value="${id}">
+			<input type="hidden" name="id" value="${todo.id}">
 			<input type="submit" value="Salvar">
 		</p>
 		<p>

@@ -1,4 +1,4 @@
-package br.edu.infnet.todoapp.app.controller;
+package br.edu.infnet.todoapp.controller;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.infnet.todoapp.app.model.Todo;
+import br.edu.infnet.todoapp.model.Todo;
 import br.edu.infnet.todoapp.service.TodoService;
 
 @Controller
@@ -22,7 +22,7 @@ public class TodoController {
 	public String home(Model model) {
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/todos/list", method = RequestMethod.GET)
 	public String list(Model model) {
 		List<Todo> todos = service.getTodos();
@@ -58,8 +58,7 @@ public class TodoController {
 	
 	@RequestMapping(value = "/todos/delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") String id, Model model) {
-		Todo todo = service.getTodo(id);
-		service.delete(todo);
+		service.delete(id);
 		return "redirect:/todos/list";
 	}	
 	
