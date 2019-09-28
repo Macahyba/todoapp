@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.infnet.todoapp.dao.UsuarioDao;
 import br.edu.infnet.todoapp.model.Usuario;
+import br.edu.infnet.todoapp.model.persistence.UsuarioDao;
 
 @Service
 public class UsuarioService {
@@ -39,13 +39,13 @@ public class UsuarioService {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(String id) {
-		dao.delete(Integer.valueOf(id));
+		dao.deletar(Integer.valueOf(id));
 	}
 	
 	@Transactional(propagation = Propagation.NEVER)
 	public Usuario getUsuario(String id) {
 		Objects.requireNonNull(id, "Id nulo!");	
-		return dao.getSingle(Integer.valueOf(id));
+		return dao.findOne(Integer.valueOf(id));
 	}
 
 	public UsuarioDao getDao() {

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.infnet.todoapp.dao.TodoDao;
 import br.edu.infnet.todoapp.model.Todo;
+import br.edu.infnet.todoapp.model.persistence.TodoDao;
 
 @Service
 public class TodoService {
@@ -45,7 +45,7 @@ public class TodoService {
 	@Transactional(propagation = Propagation.NEVER)
 	public Todo getTodo(String id) {
 		Objects.requireNonNull(id, "Id nulo!");	
-		return dao.getTodo(Integer.valueOf(id));
+		return dao.findOne(Integer.valueOf(id));
 	}
 
 	public TodoDao getDao() {

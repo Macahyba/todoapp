@@ -48,6 +48,11 @@ public class Todo {
 	public void setPronto(Boolean pronto) {
 		this.pronto = pronto;
 	}
+	
+	public String prontoPretty() {
+		
+		return Boolean.TRUE.equals(this.pronto) ? "Pronto" : "Pendente";
+	}
 
 	
 }

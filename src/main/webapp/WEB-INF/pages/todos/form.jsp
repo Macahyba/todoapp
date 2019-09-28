@@ -17,19 +17,24 @@
 </head>
 <body>
 	<div class="container-fluid">
-
 		<h2>Adicionar Tarefa</h2>
 		<form action="<c:url value="/todos/add" />" method="post">
-			<p>
-				<label for="tarefa">Tarefa</label> <input type="text" name="tarefa"
-					id="tarefa" size="100"> <input type="submit" value="Salvar">
-			</p>
-			<p>
-				<a href="<c:url value="/index" />">Home</a>
-			</p>
 
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+		    	<span class="input-group-text">Tarefa</span>
+			</div>
+			<input type="text" class="form-control col-5" name="tarefa" id="tarefa">
+			<div class="input-group-append">
+		    	<input class="btn btn-outline-success" type="submit" value="Salvar">
+		  </div>
+		</div>				
+		
+		<a href="<c:url value="/index" />" class="btn btn-link">Home</a>
 
 		</form>
 	</div>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-3.3.1.slim.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.bundle.min.js" />"></script>
 </body>
 </html>

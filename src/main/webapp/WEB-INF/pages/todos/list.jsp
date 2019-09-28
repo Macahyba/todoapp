@@ -18,29 +18,36 @@
 	<div class="container-fluid">
 		<h2>Page List Todo</h2>
 		<h3>
-			<a href="<c:url value="/todos/form" />">Criar nova tarefa</a>
+			<a href="<c:url value="/todos/form" />" class="btn btn-sm btn-link">Criar nova tarefa</a>
 		</h3>
 
 		<table class="table">
-			<tr>
-				<th>Tarefa</th>
-				<th>Status</th>
-				<th colspan="2">Ação</th>
-			</tr>
-
-			<c:forEach var="todo" items="${listaTodos}">
+			<thead class="thead-dark">
 				<tr>
-					<td>${todo.tarefa}</td>
-					<td>${todo.pronto}</td>
-					<td><a href="<c:url value="/todos/edit/${todo.id}" />">Edit</a></td>
-					<td><a href="<c:url value="/todos/delete/${todo.id}" />">Delete</a></td>
+					<th>Tarefa</th>
+					<th>Status</th>
+					<th colspan="2">Ação</th>
 				</tr>
-			</c:forEach>
+			</thead>
+			<tbody>
+				<c:forEach var="todo" items="${listaTodos}">
+					<tr>
+						<td>${todo.tarefa}</td>
+						<td>${todo.prontoPretty()}</td>
+						<td><a href="<c:url value="/todos/edit/${todo.id}" />" class="btn btn-sm btn-outline-primary">Edit</a></td>
+						<td><a href="<c:url value="/todos/delete/${todo.id}" />" class="btn btn-sm btn-outline-danger">Delete</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 		<p>
-			<a href="<c:url value="/index" />">Home</a>
+			<a href="<c:url value="/index" />" class="btn btn-sm btn-link">Home</a>
 		</p>
 
 	</div>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery-3.3.1.slim.min.js" />"></script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/bootstrap.bundle.min.js" />"></script>
 </body>
 </html>
